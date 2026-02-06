@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood-Based Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mood Selection Page -->
+    <div id="moodPage" class="page active">
+        <div class="mood-container">
+            <div class="header-section">
+                <div class="emoji-float">✨</div>
+                <h1 class="main-title">How Are You Feeling Today?</h1>
+                <p class="subtitle">Choose your mood and get personalized inspiring quotes</p>
+            </div>
+
+            <div class="mood-grid">
+                <!-- Happy Mood -->
+                <div class="mood-card" data-mood="happy">
+                    <div class="mood-emoji">😊</div>
+                    <h3 class="mood-title">Happy</h3>
+                    <p class="mood-description">Feeling joyful and energetic</p>
+                </div>
+
+                <!-- Motivated Mood -->
+                <div class="mood-card" data-mood="motivated">
+                    <div class="mood-emoji">💪</div>
+                    <h3 class="mood-title">Motivated</h3>
+                    <p class="mood-description">Ready to conquer the world</p>
+                </div>
+
+                <!-- Sad Mood -->
+                <div class="mood-card" data-mood="sad">
+                    <div class="mood-emoji">😔</div>
+                    <h3 class="mood-title">Sad</h3>
+                    <p class="mood-description">Need some comfort and hope</p>
+                </div>
+
+                <!-- Stressed Mood -->
+                <div class="mood-card" data-mood="stressed">
+                    <div class="mood-emoji">😰</div>
+                    <h3 class="mood-title">Stressed</h3>
+                    <p class="mood-description">Overwhelmed and anxious</p>
+                </div>
+
+                <!-- Confused Mood -->
+                <div class="mood-card" data-mood="confused">
+                    <div class="mood-emoji">🤔</div>
+                    <h3 class="mood-title">Confused</h3>
+                    <p class="mood-description">Seeking clarity and direction</p>
+                </div>
+
+                <!-- Grateful Mood -->
+                <div class="mood-card" data-mood="grateful">
+                    <div class="mood-emoji">🙏</div>
+                    <h3 class="mood-title">Grateful</h3>
+                    <p class="mood-description">Counting your blessings</p>
+                </div>
+
+                <!-- Tired Mood -->
+                <div class="mood-card" data-mood="tired">
+                    <div class="mood-emoji">😴</div>
+                    <h3 class="mood-title">Tired</h3>
+                    <p class="mood-description">Need rest and restoration</p>
+                </div>
+
+                <!-- Inspired Mood -->
+                <div class="mood-card" data-mood="inspired">
+                    <div class="mood-emoji">🌟</div>
+                    <h3 class="mood-title">Inspired</h3>
+                    <p class="mood-description">Full of creative energy</p>
+                </div>
+
+                <!-- Lonely Mood -->
+                <div class="mood-card" data-mood="lonely">
+                    <div class="mood-emoji">😞</div>
+                    <h3 class="mood-title">Lonely</h3>
+                    <p class="mood-description">Feeling disconnected</p>
+                </div>
+
+                <!-- Confident Mood -->
+                <div class="mood-card" data-mood="confident">
+                    <div class="mood-emoji">😎</div>
+                    <h3 class="mood-title">Confident</h3>
+                    <p class="mood-description">Believing in yourself</p>
+                </div>
+
+                <!-- Excited Mood -->
+                <div class="mood-card" data-mood="excited">
+                    <div class="mood-emoji">🤩</div>
+                    <h3 class="mood-title">Excited</h3>
+                    <p class="mood-description">Full of anticipation</p>
+                </div>
+
+                <!-- Anxious Mood -->
+                <div class="mood-card" data-mood="anxious">
+                    <div class="mood-emoji">😟</div>
+                    <h3 class="mood-title">Anxious</h3>
+                    <p class="mood-description">Worried about the future</p>
+                </div>
+
+                <!-- Peaceful Mood -->
+                <div class="mood-card" data-mood="peaceful">
+                    <div class="mood-emoji">😌</div>
+                    <h3 class="mood-title">Peaceful</h3>
+                    <p class="mood-description">Calm and serene</p>
+                </div>
+
+                <!-- Determined Mood -->
+                <div class="mood-card" data-mood="determined">
+                    <div class="mood-emoji">🔥</div>
+                    <h3 class="mood-title">Determined</h3>
+                    <p class="mood-description">Focused and unstoppable</p>
+                </div>
+
+                <!-- Nostalgic Mood -->
+                <div class="mood-card" data-mood="nostalgic">
+                    <div class="mood-emoji">🥺</div>
+                    <h3 class="mood-title">Nostalgic</h3>
+                    <p class="mood-description">Remembering the past</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Display Page -->
+    <div id="quotePage" class="page">
+        <div class="quote-container">
+            <!-- Back Button -->
+            <button id="backBtn" class="back-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Change Mood
+            </button>
+
+            <!-- Mood Display -->
+            <div class="current-mood">
+                <span class="current-mood-emoji" id="currentMoodEmoji">😊</span>
+                <span class="current-mood-text" id="currentMoodText">Happy</span>
+            </div>
+
+            <!-- Quote Box -->
+            <div class="quote-box">
+                <div class="quote-content">
+                    <div class="quote-mark">"</div>
+                    <p id="quote" class="quote-text">Click the button below to get inspired!</p>
+                    <p id="author" class="quote-author"></p>
+                </div>
+
+                <div class="quote-category-badge">
+                    <span id="category">Inspirational</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="newQuoteBtn" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4 12L2 14M4 12L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    New Quote
+                </button>
+                
+                <button id="shareBtn" class="btn btn-secondary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Share
+                </button>
+
+                <button id="favoriteBtn" class="btn btn-icon-only">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
